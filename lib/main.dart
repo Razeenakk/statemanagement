@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_ex/provider/trendingProvider.dart';
+import 'package:provider_ex/repository/api/MoviesApi.dart';
+import 'package:provider_ex/ui/BlocPage.dart';
+
+import 'bloc/trendingbloc_bloc.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -13,10 +18,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  MoviesApi moviesApi = MoviesApi();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return BlocProvider(
+  create: (context) => TrendingblocBloc(moviesApi),
+  child: MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -30,8 +38,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+      home: BlocPage(),
+    ),
+);
   }
 }
 
