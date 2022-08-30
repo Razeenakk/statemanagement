@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: BlocPage(),
+      home: MyHomePage(title: 'provider',),
     ),
 );
   }
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     final trendingProvider = Provider.of<TrendingProvider>(context,listen: false);
     trendingProvider.getTrendingMovieData(context);
-    // TODO: implement initState
+
     super.initState();
   }
  final imagepathurl = 'https://image.tmdb.org/t/p/w185';

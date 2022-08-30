@@ -19,6 +19,8 @@ class _BlocPageState extends State<BlocPage> {
     BlocProvider.of<TrendingblocBloc>(context).add(FetchTrending());
     // TODO: implement initState
     super.initState();
+
+
   }
   @override
   Widget build(BuildContext context) {
@@ -50,10 +52,10 @@ class _BlocPageState extends State<BlocPage> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage(imagepathurl + trendingMoviesModel.results![index].posterPath
-                                .toString())
+                             image: NetworkImage(imagepathurl + trendingMoviesModel.results![index].posterPath
+                                .toString()))
                         )
-                    ),
+
                   );
                 });
           }

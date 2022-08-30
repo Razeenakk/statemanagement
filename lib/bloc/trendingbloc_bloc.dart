@@ -12,9 +12,11 @@ class TrendingblocBloc extends Bloc<TrendingblocEvent, TrendingblocState> {
 late  TrendingMoviesModel trendingMoviesModel;
 MoviesApi moviesApi;
   TrendingblocBloc(this.moviesApi) : super(TrendingblocInitial()) {
+    //THIS IS A CONSTRUCTOR
     on<TrendingblocEvent>((event, emit) async {
       emit(TrendingblocLoading());
       try{
+
 
         trendingMoviesModel = await moviesApi.getTrendingMovies();
         emit(TrendingblocLoaded());

@@ -5,12 +5,8 @@ import 'package:http/http.dart';
 import 'package:provider_ex/repository/api/api_exception.dart';
 
 class ApiClient {
-
   static final String basePath = 'https://api.themoviedb.org/3/';
   String token = "55c72b3a0898da6b37311cf0603659e2";
-
-
-
   Future<Response> invokeAPI(String path, String method, Object? body
       ) async {
     Map<String, String> headerParams = {
